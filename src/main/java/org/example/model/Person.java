@@ -6,13 +6,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Person")
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 public class Person {
 
     @Id
@@ -25,6 +25,18 @@ public class Person {
 
     @Column(name = "age")
     private int age;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
     public Person(String name, int age) {
         this.name = name;

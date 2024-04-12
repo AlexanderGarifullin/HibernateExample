@@ -14,6 +14,13 @@ import javax.persistence.*;
 @Getter
 @ToString
 public class Item {
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", itemName='" + itemName + '\'' +
+                '}';
+    }
 
     @Id
     @Column(name = "id")
@@ -23,7 +30,12 @@ public class Item {
     @Column(name = "item_name")
     private String itemName;
 
-    public Item(String itemName) {
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person owner;
+
+    public Item(String itemName, Person owner) {
         this.itemName = itemName;
+        this.owner = owner;
     }
 }
