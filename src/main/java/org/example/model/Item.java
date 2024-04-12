@@ -8,26 +8,22 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "Item")
 @NoArgsConstructor
 @Setter
 @Getter
 @ToString
-public class Person {
+public class Item {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "item_name")
+    private String itemName;
 
-    @Column(name = "age")
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Item(String itemName) {
+        this.itemName = itemName;
     }
 }
