@@ -29,8 +29,7 @@ public class App
 
             Person person = new Person("Test cascade", 30);
 
-            Item item = new Item("Test casc item", person);
-            person.setItems(new ArrayList<>(Collections.singletonList(item)));
+            person.addItem(new Item("Item1"));
 
             session.save(person);
 
