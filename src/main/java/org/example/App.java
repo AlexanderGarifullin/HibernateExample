@@ -32,7 +32,7 @@ public class App
             Item item = new Item("Test casc item", person);
             person.setItems(new ArrayList<>(Collections.singletonList(item)));
 
-            session.persist(person);
+            session.save(person);
 
             session.getTransaction().commit();
         } finally {
